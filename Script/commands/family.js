@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "family",
+    name: "عائلة",
     version: "1.0.0",
     hasPermssion: 1,
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -21,7 +21,7 @@ module.exports.config = {
 module.exports.run = async ({ event, api, args }) => {
   var TOKEN = "6628568379%7Cc1e620fa708a1d5696fb991c1bde5662";
   try {
-    if(global.client.family == true) return api.sendMessage("The system is processing a request from another box, please come back later", event.threadID, event.messageID);
+    if(global.client.family == true) return api.sendMessage("يقوم النظام بمعالجة طلب من صندوق آخر، يرجى العودة لاحقًا", event.threadID, event.messageID);
     global.client.family = true;
     var timestart = Date.now();
     const fs = global.nodemodule["fs-extra"];
@@ -40,7 +40,7 @@ module.exports.run = async ({ event, api, args }) => {
        fs.writeFileSync(__dirname+"/cache/color1.png", Buffer.from(getimg, "utf-8"));
       }
       global.client.family = false;
-    return api.sendMessage({body: "Enter the appropriate member avatar size and color code for the text (default is black) according to the syntax:\n$family <size> <color code> <title>\nIn which:\n•size: Size of each member's avatar\n•color code: hex color code\n•title: image title, default is box name if not filled in\nEg: $family 200 #ffffff Brothers of one house\nIf choose size = 0 then it will adjust the size automatically, if you don't enter the title, the title will be the box name",
+    return api.sendMessage({body: "أدخل حجم الصورة الرمزية للعضو المناسب ورمز اللون للنص (الافتراضي هو الأسود) وفقًا للصيغة:\n$عائلة <الحجم> <اللون الكود> <النص>\n فيها:\n•الحجم: حجم الصورة الرمزية لكل عضو\n•رمز اللون: رمز اللون السداسي\n•العنوان: عنوان الصورة, الافتراضي هو اسم المربع إذا لم يتم ملؤه\nEg: $عائلة 200 #ffffff إخوة من بيت واحد\n إذا اخترت الحجم = 0 فسيتم تعديل الحجم تلقائيًا، إذا لم تقم بإدخال العنوان، فسيكون العنوان هو اسم المربع",
     attachment: fs.createReadStream(__dirname+"/cache/color1.png")}, threadID, messageID);
     };
     
@@ -92,9 +92,9 @@ module.exports.run = async ({ event, api, args }) => {
     };
         if(s > ybground || s > xbground) {
           global.client.family = false;
-          return api.sendMessage(`Size avatar phải nhỏ hơn size background\nSize background: X: ${xbground}, Y: ${ybground}`, threadID, messageID);
+          return api.sendMessage(`يجب أن يكون حجم الصورة الرمزية أصغر من حجم الخلفية\n حجم الخلفية: X: ${xbground}, Y: ${ybground}`, threadID, messageID);
         }
-        api.sendMessage(`🔢Estimated number of photos: ${idtv.length}\n🆒 Background Size: ${xbground} x ${ybground}\n🆕Avatar Size: ${s}${mode}\n#️⃣Color: ${color}\n⏳Processing your request, it may take up to 1 minute to complete...`,threadID, messageID);
+        api.sendMessage(`🔢العدد التقديري للصور: ${idtv.length}\n🆒 حجم الخلفية: ${xbground} x ${ybground}\n🆕حجم الصورة الرمزية: ${s}${mode}\n#️⃣لون: ${color}\n⏳جاري معالجة طلبك، قد يستغرق الأمر ما يصل إلى دقيقة واحدة لإكماله...`,threadID, messageID);
     var loadkhung = await Canvas.loadImage("https://i.ibb.co/H41cdDM/1624768781720.png");//("https://s1.uphinh.org/2021/06/24/1624551553171.png");
     var title = args.slice(2).join(" ") || threadInfo.name;
     var path_alltv = __dirname+`/cache/alltv${threadID}${Date.now()}.png`;
@@ -165,11 +165,11 @@ module.exports.run = async ({ event, api, args }) => {
       imagecut.crop(0, 0, xcrop, ycrop+l-30).writeAsync(path_alltv);
       console.log("Finished cropping the image and saved it in the cache");
       await delay(200);
-       api.sendMessage({body: `🟦Number of photos: ${dem} (Filtered ${ngdung} Facebook users)\n🆒 Background Size: ${xbground} x ${ybground}\n🆕Avatar Size: ${s}${mode}\n⏱️Processing Time: ${Math.floor((Date.now()-timestart)/1000)} second`,
+       api.sendMessage({body: `🟦عدد الصور: ${dem} (فلتر ${ngdung} مستخدمو الفيسبوك)\n🆒 حجم الخلفية: ${xbground} x ${ybground}\n🆕حجم الصورة الرمزية: ${s}${mode}\n⏱️وقت المعالجة: ${Math.floor((Date.now()-timestart)/1000)} second`,
           attachment: fs.createReadStream(path_alltv, { 'highWaterMark': 128 * 1024 })
        }, threadID, (e, info) => {
          if(e) {
-            api.sendMessage("An error occurred, please try again later", threadID, messageID);
+            api.sendMessage("حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا", threadID, messageID);
          };
          fs.unlinkSync(path_alltv);
        }, messageID);
@@ -179,7 +179,7 @@ module.exports.run = async ({ event, api, args }) => {
       console.log(e.stack);
       fs.writeFileSync(path_alltv, canvas.toBuffer());
        api.sendMessage({
-        body: `An Auto cut error has occurred\n🟦Number of photos: ${dem}\n(Filtered ${ngdung} Facebook users)\n🆒Background Size: ${xbground} x ${ybground}\n🆕Avatar Size: ${s}${mode}\n⏱️Processing Time: ${Math.floor((Date.now()-timestart)/1000)} second`,
+        body: `لقد حدث خطأ في القطع التلقائي\n🟦عدد الصور: ${dem}\n(Filtered ${ngdung} Facebook users)\n🆒Background Size: ${xbground} x ${ybground}\n🆕Avatar Size: ${s}${mode}\n⏱️Processing Time: ${Math.floor((Date.now()-timestart)/1000)} second`,
             attachment: fs.createReadStream(path_alltv, { 'highWaterMark': 128 * 1024 })
          }, threadID, (e, info) => {
            if(e) {
