@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: 'listbox',
+  name: 'لاست',
   version: '1.0.0',
   credits: '𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️',
   hasPermssion: 2,
@@ -22,7 +22,7 @@ module.exports.handleReply = async function({ api, event, args, Threads, handleR
 
     case "reply":
       {
-        if (arg[0] == "ban" || arg[0] == "Ban") {
+        if (arg[0] == "حظر" || arg[0] == "Ban") {
           const data = (await Threads.getData(idgr)).data || {};
           data.banned = 1;
           await Threads.setData(idgr, { data });
@@ -31,7 +31,7 @@ module.exports.handleReply = async function({ api, event, args, Threads, handleR
           break;
         }
 
-        if (arg[0] == "out" || arg[0] == "Out") {
+        if (arg[0] == "مغادرة" || arg[0] == "Out") {
           api.removeUserFromGroup(`${api.getCurrentUserID()}`, idgr);
           api.sendMessage("Out thread with id: " + idgr + "\n" + (await Threads.getData(idgr)).name, event.threadID, event.messageID);
           break;
@@ -75,7 +75,7 @@ module.exports.run = async function({ api, event, client }) {
     groupid.push(group.id);
   }
 
-  api.sendMessage(msg + 'Reply "out" or "ban" the number of order to out or ban that thread!!', event.threadID, (e, data) =>
+  api.sendMessage(msg + 'الرد بـ "مغادرة" أو "حظر" رقم الطلب لإخراج أو حظر هذا الموضوع!!', event.threadID, (e, data) =>
     global.client.handleReply.push({
       name: this.config.name,
       author: event.senderID,
