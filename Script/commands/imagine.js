@@ -1,9 +1,9 @@
 module.exports.config = {
-  name: "imagine",
+  name: "تخيل3",
   version: "1.0.",
   hasPermssion: 0,
   credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
-  description: "generate image from polination",
+  description: "توليد صورة من التلقيح",
   commandCategory: "image",
   usages: "query",
   cooldowns: 2,
