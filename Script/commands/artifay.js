@@ -179,7 +179,7 @@ function generateText(text, font) {
 }
 
 module.exports.config = {
-    name: "Artify",
+    name: "زخرفة",
     version: "1.0.0",
     hasPermission: 0,
     credits: "Islamick Chat",
@@ -197,18 +197,18 @@ module.exports.run = async ({ event, api, args }) => {
         for (const name in textArts) {
             message += `   ⦿ ${name}\n`;
         }
-        message += "\n𝗟𝗜𝗦𝗧 𝗢𝗙 𝗔𝗩𝗔𝗜𝗟𝗔𝗕𝗟𝗘 𝗙𝗢𝗡𝗧𝗦:\n\n";
+        message += "\nقائمة الخطوط المتوفرة :\n\n";
         for (const name in fonts) {
             message += `   ⦿ ${name}\n`;
         }
-        message += "\n𝗨𝗦𝗔𝗚𝗘:\n\n   ⦿ /Artify [ASCII art name]\n    Example: /Artify luffy\n\n   ⦿ /Artify [font name] [text]\n    Example: /Artify mathsans\n    Artificial Intelligence";
+        message += "\nالاستخدام :\n\n   ⦿ /زخرفة [اسم الخط]\n    Example: /زخرفة لوفي\n\n   ⦿ /زخرفة [اسم الخط] [النص]\n    Example: /زخرفة مكينة\n    زخرفة زورو";
         for (const name in fonts) {
         }
 
         return api.sendMessage(message, event.threadID, event.messageID);
     }
 
-    if (command === "list") {
+    if (command === "قائمة") {
         let message = "𝗟𝗜𝗦𝗧 𝗢𝗙 𝗔𝗩𝗔𝗜𝗟𝗔𝗕𝗟𝗘 𝗔𝗥𝗧𝗦:\n\n";
         for (const name in textArts) {
             message += `   ⦿ ${name}\n`;
@@ -232,15 +232,15 @@ module.exports.run = async ({ event, api, args }) => {
 
     if (textArts[fontOrArt]) {
         const selectedArt = textArts[fontOrArt];
-        const artMessage = `Here's the "${fontOrArt}" ASCII art:\n\n${selectedArt}\n\nYou can copy the ${fontOrArt} art and paste it into [https://pastebin.com/] to see it more clearly.`;
+        const artMessage = `وهنا هو "${fontOrArt}" فن ASCII:\n\n${selectedArt}\n\n يمكنك نسخ ${fontOrArt} الفن ولصقه في [https://pastebin.com/] لرؤيته بشكل أكثر وضوحا.`;
         const pastebinLink = `https://pastebin.com/`;
 
         if (selectedArt.length > 100000) {
-            return api.sendMessage(`The "${fontOrArt}" text art or ASCII art is too long. You can paste it to ${pastebinLink} to see it more clearly.`, event.threadID);
+            return api.sendMessage(`ال "${fontOrArt}" فن النص أو فن ASCII طويل جدًا. يمكنك لصقه في ${pastebinLink} لرؤيته بشكل أكثر وضوحا.`, event.threadID);
         }
 
         return api.sendMessage(artMessage, event.threadID);
     }
 
-    return "Invalid command. Use /Artify list' to see available fonts and text arts.";
+    return "أمر غير صالح. استخدم /زخرفة قائمة ' لرؤية الخطوط والفنون النصية المتوفرة.";
 };
