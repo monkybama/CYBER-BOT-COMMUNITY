@@ -1,5 +1,5 @@
 module.exports.config = {
- name: "art",
+ name: "رسم",
  version: "1.0.0",
  hasPermssion: 0,
  credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -18,14 +18,14 @@ module.exports.run = async ({ api, event }) => {
  const { messageReply, threadID, messageID } = event;
 
  if (!messageReply || !messageReply.attachments || messageReply.attachments.length === 0) {
- return api.sendMessage("❌ অনুগ্রহ করে কোনো একটি ছবির রিপ্লাই দিন।", threadID, messageID);
+ return api.sendMessage("❌ يرجى الرد بصورة.", threadID, messageID);
  }
 
  const url = messageReply.attachments[0].url;
 
  try {
  // ডাউনলোড করে লোকাল সেভ
- const response = await axios.get(url, { responseType: "arraybuffer" });
+ const response = await axios.get(url, { responseType: "مخزن المصفوفة" });
  fs.writeFileSync(path, Buffer.from(response.data, "utf-8"));
 
  // ফর্ম ডেটা তৈরি করে API তে পাঠানো
@@ -35,19 +35,19 @@ module.exports.run = async ({ api, event }) => {
  const apiRes = await axios.post(
  "https://art-api-97wn.onrender.com/artify?style=anime",
  form,
- { headers: form.getHeaders(), responseType: "arraybuffer" }
+ { headers: form.getHeaders(), responseType: "مخزن المصفوفة" }
  );
 
  // রেসপন্স সেভ করে পাঠানো
  fs.writeFileSync(path, apiRes.data);
 
  api.sendMessage({
- body: "✅ AI artify করা হয়েছে!",
+ body: "✅ AI artify منتهي.!",
  attachment: fs.createReadStream(path)
  }, threadID, () => fs.unlinkSync(path), messageID);
 
  } catch (err) {
  console.error(err);
- api.sendMessage("❌ কিছু একটা ভুল হয়েছে। আবার চেষ্টা করুন।", threadID, messageID);
+ api.sendMessage("❌ حدث خطأ ما. يُرجى المحاولة مرة أخرى.", threadID, messageID);
  }
 };
