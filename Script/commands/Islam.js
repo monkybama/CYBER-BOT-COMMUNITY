@@ -1,6 +1,6 @@
 /** I am doing this coding with a lot of difficulty, please don't post it yourself¯\_(ツ)_/¯ **/
 module.exports.config = {
-  name: "islam",
+  name: "اسلام",
   version: "1.0.0",
   hasPermssion: 0,
   credits: "Islamick Chat",
@@ -19,7 +19,7 @@ module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currenc
 const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
-   var hi = ["•┄┅════❁🌺❁════┅┄•\n\nআসসালামু আলাইকুম-!!🖤💫প্রিয় ভাই ও বন - তুমাদের জন্য নিয়ে আসলাম আমি ইসলামিক ভিডিও \n\n•┄┅════❁🌺❁════┅┄•"];
+   var hi = ["•┄┅════❁🌺❁════┅┄•\n\السلام عليكم.-!!🖤💫عزيزي الاخ والغالي - لقد أحضرت لك مقاطع فيديو إسلامية. \n\n•┄┅════❁🌺❁════┅┄•"];
   var know = hi[Math.floor(Math.random() * hi.length)];
   var link = [
 "https://drive.google.com/uc?id=1Y5O3qRzxt-MFR4vVhz0QsMwHQmr-34iH",
