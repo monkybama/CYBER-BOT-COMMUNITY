@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "kick",
+	name: "بانكاي",
 	version: "1.0.1", 
 	hasPermssion: 1,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -11,14 +11,14 @@ module.exports.config = {
 
 module.exports.languages = {
 	"vi": {
-		"error": "Đã có lỗi xảy ra, vui lòng thử lại sau",
-		"needPermssion": "Cần quyền quản trị viên nhóm\nVui lòng thêm và thử lại!",
-		"missingTag": "Bạn phải tag người cần kick"
+		"error": "حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا",
+		"needPermssion": "ارفع ادمن عشان اديهو في حنانو 🐸 !",
+		"missingTag": "اعمل ليهو تاق الكب 🐸"
 	},
 	"en": {
-		"error": "Error! An error occurred. Please try again later!",
-		"needPermssion": "Need group admin\nPlease add and try again!",
-		"missingTag": "You need tag some person to kick"
+		"error": "حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا",
+		"needPermssion": "ارفع ادمن عشان اديهو في حنانو 🐸 !",
+		"missingTag": "اعمل ليهو تاق الكب 🐸"
 	}
 }
 
