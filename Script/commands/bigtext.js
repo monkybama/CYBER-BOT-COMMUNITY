@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "bigtext",
+    name: "نص-كبير",
     version: "1.0.0",
     hasPermssion: 0,
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -215,5 +215,5 @@ module.exports.run = async ({ event, api, args }) => {
     }
     msg += txt+"\n";
   }
-  return api.sendMessage(msg+"\nView the message on your browser to see more clearly", event.threadID, event.messageID);
+  return api.sendMessage(msg+"\n قم بعرض الرسالة على متصفحك لرؤيتها بشكل أكثر وضوحًا", event.threadID, event.messageID);
 }
