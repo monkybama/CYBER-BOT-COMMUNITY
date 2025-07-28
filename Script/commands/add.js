@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports.config = {
- name: "add",
+ name: "رفع",
  version: "1.0.0",
  hasPermission: 0,
  credits: "Shaon",
@@ -17,7 +17,7 @@ module.exports.run = async ({ api, event, args }) => {
  const videoName = args.join(" ").trim(); 
 
  if (!videoName) {
- return api.sendMessage("Please provide a name for the video.", event.threadID, event.messageID);
+ return api.sendMessage("الرجاء تقديم اسم للفيديو.", event.threadID, event.messageID);
  }
  const apis1 = await axios.get('https://raw.githubusercontent.com/shaonproject/Shaon/main/api.json')
  const Shaon1 = apis1.data.imgur
@@ -35,6 +35,6 @@ module.exports.run = async ({ api, event, args }) => {
 
  } catch (e) {
  console.log(e);
- api.sendMessage(`An error occurred: ${e.message}`, event.threadID, event.messageID);
+ api.sendMessage(`حدث خطأ: ${e.message}`, event.threadID, event.messageID);
  }
 };
