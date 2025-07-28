@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    name: "fp",
+    name: "بروفايل",
     version: "1.1",
     credits: "𝐈𝐬𝐥𝐚𝐦𝐢𝐜𝐤 𝐂𝐲𝐛𝐞𝐫",
     countDown: 5,
