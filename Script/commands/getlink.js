@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "getlink",
+	name: "رابط",
 	version: "1.0.1",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -11,10 +11,10 @@ module.exports.config = {
 
 module.exports.languages = {
 	"vi": {
-		"invaidFormat": "❌ Tin nhắn bạn phản hồi phải là một audio, video, ảnh nào đó"
+		"تنسيق غير صالح": "❌ يجب أن تكون رسالة الرد الخاصة بك صوتية أو فيديو أو صورة."
 	},
 	"en": {
-		"invaidFormat": "❌ Your need reply a message have contain an audio, video or picture"
+		"تنسيق غير صالح": "❌ يجب أن تحتوي رسالتك على صوت أو فيديو أو صورة"
 	}
 }
 
