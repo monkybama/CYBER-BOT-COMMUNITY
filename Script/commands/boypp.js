@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "boy pp",
+  name: "صورة-ولد",
   version: "1.0.0",
   hasPermssion: 0,
   credits: "Islamick Chat",
