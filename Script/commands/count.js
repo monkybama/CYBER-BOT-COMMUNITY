@@ -1,6 +1,6 @@
 var limit = 20; //number of members per check
 module.exports.config = {
-	name: "count",
+	name: "احسب",
 	version: "1.8.0",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
