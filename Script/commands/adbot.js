@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "ckbot",
+    name: "حول",
     version: "1.0.0",
     hasPermssion: 0,
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -33,9 +33,9 @@ module.exports.run = async({api,event,args}) => {
              var nam = gendernam.length;
              var nu = gendernu.length;
              let sex = threadInfo.approvalMode;
-       var pd = sex == false ? "Turn off" : sex == true ? "turn on" : "NS";
-       if(!imgg) api.sendMessage(`Group name: ${threadInfo.threadName}\nTID: ${args[1]}\nApproved: ${pd}\nEmoji: ${threadInfo.emoji}\nInformation: \n»${threadInfo.participantIDs.length} members and ${threadInfo.adminIDs.length} administrators.\n»Including ${nam} boy and ${nu} female.\n»Total number of messages: ${threadInfo.messageCount}.`,event.threadID,event.messageID);
-        else var callback = () => api.sendMessage({body:`Group name: ${threadInfo.threadName}\nTID: ${args[1]}\nApproved: ${pd}\nEmoji: ${threadInfo.emoji}\nInformation: \n»${threadInfo.participantIDs.length} members and ${threadInfo.adminIDs.length}administrators.\n»Including ${nam} boy and ${nu} female.\n»Total number of messages: ${threadInfo.messageCount}.`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"), event.messageID); 
+       var pd = sex == false ? "ايقاف" : sex == true ? "تشغيل" : "NS";
+       if(!imgg) api.sendMessage(`Group name: ${threadInfo.threadName}\nTID: ${args[1]}\nموافقة: ${pd}\nEmoji: ${threadInfo.emoji}\nمعلومات: \n»${threadInfo.participantIDs.length} الاعضاء و ${threadInfo.adminIDs.length} الإداريين.\n»الإداريين.\n»Including ${nam} عب و ${nu} عبة.\n»إجمالي عدد الرسائل: ${threadInfo.messageCount}.`,event.threadID,event.messageID);
+        else var callback = () => api.sendMessage({body:`اسم المجموعة: ${threadInfo.threadName}\nTID: ${args[1]}\nموافقة: ${pd}\nEmoji: ${threadInfo.emoji}\nمعلومات: \n»${threadInfo.participantIDs.length} الاعضاء و  ${threadInfo.adminIDs.length}الإداريين.\n»Including ${nam} عب و ${nu} عبة.\n»إجمالي عدد الرسائل: ${threadInfo.messageCount}.`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"), event.messageID); 
       return request(encodeURI(`${threadInfo.imageSrc}`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
       
       }
@@ -52,7 +52,7 @@ module.exports.run = async({api,event,args}) => {
              var nam = gendernam.length;
              var nu = gendernu.length;
              let sex = threadInfo.approvalMode;
-       var pd = sex == false ? "Turn off" : sex == true ? "turn on" : "NS";
+       var pd = sex == false ? "ايقاف" : sex == true ? "تشغيل" : "NS";
           if(!img) api.sendMessage(`Group name: ${threadInfo.threadName}\nTID: ${event.threadID}\nApproved: ${pd}\nEmoji: ${threadInfo.emoji}\nInformation: \n»${threadInfo.participantIDs.length} members and ${threadInfo.adminIDs.length} administrators.\n»Including ${nam} boy and ${nu} nữ.\n»Total number of messages: ${threadInfo.messageCount}.`,event.threadID,event.messageID)
           else  var callback = () => api.sendMessage({body:`Group name: ${threadInfo.threadName}\nTID: ${event.threadID}\nBrowser: ${pd}\nEmoji: ${threadInfo.emoji}\nInformation: \n»${threadInfo.participantIDs.length} members and ${threadInfo.adminIDs.length} administrators.\n»Including ${nam} boy and ${nu} female.\n»Total number of messages: ${threadInfo.messageCount}.`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"), event.messageID);   
       return request(encodeURI(`${threadInfo.imageSrc}`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
@@ -60,7 +60,7 @@ module.exports.run = async({api,event,args}) => {
                if (args.length == 0) return api.sendMessage(`You can use:\n\n${prefix}${this.config.name} user => it will get your own information.\n\n${prefix}${this.config.name} user @[Tag] => it will get the information of the person you tag.\n\n${prefix}${this.config.name} box => it will get your box information (number of members, djt each other,...)\n\n${prefix}${this.config.name} user box [uid || tid]`, event.threadID, event.messageID);
     if (args[0] == "admin") {
       var callback = () => api.sendMessage(
-  {body:`———»ADMIN BOT«———\n❯ Name: 𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭 🖤\n❯ Facebook: https://https://m.facebook.com/priyanshu.rajput.official\n❯ Thanks for using ${global.config.BOTNAME} bot`,
+  {body:`———»ADMIN BOT«———\n❯ Name: 𝑨𝒘𝒂𝒃 𝑶𝒎𝒆𝒓 𝑯𝒂𝒎𝒂𝒅 𝑨𝒍-𝑵𝒊𝒍 🖤\n❯ Facebook: https://https://m.facebook.com/mozan50sama\n❯ شكرا لك لي استخدام ${global.config.BOTNAME} BOT`,
     attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => 
     fs.unlinkSync(__dirname + "/cache/1.png"));  
       return request(encodeURI(`https://graph.facebook.com/100012191281263/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`)).pipe(
@@ -68,13 +68,13 @@ fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
     
       };
 
-if (args[0] == "user") { 
+if (args[0] == "مستخدم") { 
     if(!args[1]){
     if(event.type == "message_reply") id = event.messageReply.senderID
     else id = event.senderID;
     let data = await api.getUserInfo(id);
     let url = data[id].profileUrl;
-    let b = data[id].isFriend == false ? "are not !" : data[id].isFriend == true ? "Yes !" : "Damn";
+    let b = data[id].isFriend == false ? "ليست كذلك !" : data[id].isFriend == true ? "Yes !" : "Damn";
     let sn = data[id].vanity;
     let name = await data[id].name;
     var sex = await data[id].gender;
