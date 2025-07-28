@@ -31,7 +31,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
  var nam = await Users.getNameUser(id);
  if (!dipto) {
  return api.sendMessage(
- `❌| wrong \ntry ${global.config.PREFIX}fbcover v1/v2/v3 - name - title - address - email - phone - color (default = white)`,
+ `❌| خطاء \ntry ${global.config.PREFIX}fbcover v1/v2/v3 - name - title - address - email - phone - color (default = white)`,
  event.threadID,
  event.messageID,
  );
@@ -45,7 +45,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
  const phone = msg[5].trim() || " ";
  const color = msg[6].trim() || "white";
  api.sendMessage(
- `Processing your cover,Wait koro baby < 😘`,
+ `جاري معالجة غطائك، انتظر  < `,
  event.threadID,
  (err, info) =>
  setTimeout(() => {
