@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "gf",
+    name: "ارتباط",
     version: "7.3.1",
     hasPermssion: 0,
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️", 
@@ -66,9 +66,9 @@ module.exports.run = async function ({ event, api, args }) {
     const fs = global.nodemodule["fs-extra"];
     const { threadID, messageID, senderID } = event;
     const mention = Object.keys(event.mentions);
-    if (!mention[0]) return api.sendMessage("Please mention 1 person.", threadID, messageID);
+    if (!mention[0]) return api.sendMessage("الرجاء ذكر شخص واحد.", threadID, messageID);
     else {
         const one = senderID, two = mention[0];
-        return makeImage({ one, two }).then(path => api.sendMessage({ body: "✿┈┈┈┈┈┈༺♡༻┈┈┈┈┈┈✿/n      জোড়া লাগানো সম্পূর্ণ!\n✿┈┈┈┈┈┈༺♡༻┈┈┈┈┈┈✿\n\n    💑 এই নে তোর কাইল্লা বোউরে।\n    কালকে দেখছিলাম আরেক বেড়ার লগে পার্কের চিপায়", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
+        return makeImage({ one, two }).then(path => api.sendMessage({ body: "✿┈┈┈┈┈┈༺♡༻┈┈┈┈┈┈✿/n      تم الاقتران بالكامل!\n✿┈┈┈┈┈┈༺♡༻┈┈┈┈┈┈✿\n\n    💑 هذا/ه الفتات/الصبي الخاصة بك.\n    كنت أشاهد بالأمس، في الحديقة، على طول سياج آخر.", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
     }
       }
