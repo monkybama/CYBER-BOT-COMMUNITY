@@ -1,7 +1,7 @@
 const fs = require("fs");
 const axios = require("axios")
 module.exports.config = {
-	name: "groupimage",
+	name: "صورة-المجموعة",
 	version: "1.0.0", 
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -13,9 +13,9 @@ module.exports.config = {
 };
 
 module.exports.run = async ({ api, event }) => {
-	if (event.type !== "message_reply") return api.sendMessage("❌ You have to reply to a photo", event.threadID, event.messageID);
-	if (!event.messageReply.attachments || event.messageReply.attachments.length == 0) return api.sendMessage("❌ You have to reply to a photo", event.threadID, event.messageID);
-	if (event.messageReply.attachments.length > 1) return api.sendMessage(`Please reply only 1 photo!`, event.threadID, event.messageID);
+	if (event.type !== "message_reply") return api.sendMessage("❌ يجب عليك الرد على الصورة", event.threadID, event.messageID);
+	if (!event.messageReply.attachments || event.messageReply.attachments.length == 0) return api.sendMessage("❌ يجب عليك الرد على الصورة", event.threadID, event.messageID);
+	if (event.messageReply.attachments.length > 1) return api.sendMessage(`الرجاء الرد بصورة واحدة فقط!`, event.threadID, event.messageID);
 	var abc = event.messageReply.attachments[0].url
 	let pathImg = __dirname + '/cache/loz.png';
     let getdata = (await axios.get(`${abc}`, { responseType: 'arraybuffer' })).data;
