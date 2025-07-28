@@ -5,7 +5,7 @@ const ytSearch = require("yt-search");
 
 module.exports = {
   config: {
-    name: "music",
+    name: "اغاني",
     version: "1.0.3",
     hasPermssion: 0,
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -24,7 +24,7 @@ module.exports = {
 
     if (
       args.length > 1 &&
-      (args[args.length - 1] === "audio" || args[args.length - 1] === "video")
+      (args[args.length - 1] === "اغنية" || args[args.length - 1] === "فيديو")
     ) {
       type = args.pop();
       songName = args.join(" ");
@@ -85,7 +85,7 @@ module.exports = {
         {
           attachment: fs.createReadStream(downloadPath),
           body: `🖤 Title: ${topResult.title}\n\n Here is your ${
-            type === "audio" ? "audio" : "video"
+            type === "audio" ? "اغنية" : "فيديو"
           } 🎧:`,
         },
         event.threadID,
@@ -96,7 +96,7 @@ module.exports = {
         event.messageID
       );
     } catch (error) {
-      console.error(`Failed to download and send song: ${error.message}`);
+      console.error(`فشل في تنزيل الأغنية وإرسالها: ${error.message}`);
       api.sendMessage(
         `Failed to download song: ${error.message}`,
         event.threadID,
