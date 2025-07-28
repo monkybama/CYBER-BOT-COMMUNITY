@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "delete",
+	name: "حذف",
 	version: "1.0.1",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -74,6 +74,6 @@ module.exports.run = async function ({ event, api, args, Currencies }) {
   
   if (!two) return api.sendMessage("Please tag 1 person", threadID, messageID);
   else {
-        return makeImage({ one, two }).then(path => api.sendMessage({ body: ` আবর্জনা মুছে ফেলা হচ্ছে 😮‍💨💀🖱️`, attachment: fs.createReadStream(path)}, threadID, () => fs.unlinkSync(path), messageID));
+        return makeImage({ one, two }).then(path => api.sendMessage({ body: ` حذف سلة المهملات 😮‍💨💀🖱️`, attachment: fs.createReadStream(path)}, threadID, () => fs.unlinkSync(path), messageID));
   }
 }
