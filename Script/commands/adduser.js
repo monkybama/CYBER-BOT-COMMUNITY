@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "adduser",
+	name: "اضف",
 	version: "2.4.3",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -19,15 +19,15 @@ module.exports.run = async function ({ api, event, args }) {
 	const out = msg => api.sendMessage(msg, threadID, messageID);
 	var { participantIDs, approvalMode, adminIDs } = await api.getThreadInfo(threadID);
 	var participantIDs = participantIDs.map(e => parseInt(e));
-	if (!args[0]) return out("Please enter 1 id/link profile user need to add.");
+	if (!args[0]) return out("الرجاء إدخال ملف تعريف واحد/رابط للمستخدم الذي يحتاج إلى إضافته.");
 	if (!isNaN(args[0])) return adduser(args[0], undefined);
 	else {
 		try {
 			var [id, name, fail] = await getUID(args[0], api);
 			if (fail == true && id != null) return out(id);
-			else if (fail == true && id == null) return out("User ID not found.")
+			else if (fail == true && id == null) return out("لم يتم العثور على معرف المستخدم.")
 			else {
-				await adduser(id, name || "Facebook user");
+				await adduser(id, name || "مستخدم فيسبوك");
 			}
 		} catch (e) {
 			return out(`${e.name}: ${e.message}.`);
@@ -36,17 +36,17 @@ module.exports.run = async function ({ api, event, args }) {
 
 	async function adduser(id, name) {
 		id = parseInt(id);
-		if (participantIDs.includes(id)) return out(`${name ? name : "Member"} are already in the group.`);
+		if (participantIDs.includes(id)) return out(`${name ? name : "العضو"} موجود بالفعل في المجموعة.`);
 		else {
 			var admins = adminIDs.map(e => parseInt(e.id));
 			try {
 				await api.addUserToGroup(id, threadID);
 			}
 			catch {
-				return out(`Can't add ${name ? name : "user"} to group.`);
+				return out(`لا يمكن الإضافة ${name ? name : "مستخدم"} الى المجموعة.`);
 			}
-			if (approvalMode === true && !admins.includes(botID)) return out(`Add ${name ? name : "member"} to the approved list !`);
-			else return out(`Added ${name ? name : "member"} to group !`)
+			if (approvalMode === true && !admins.includes(botID)) return out(`اضف ${name ? name : "العضو"} إلى القائمة المعتمدة!`);
+			else return out(`تمت اضافة ${name ? name : "المستخدم"} الى المجموعة !`)
 		}
 	}
     }
