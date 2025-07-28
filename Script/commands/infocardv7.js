@@ -1,7 +1,7 @@
 const fonts = "/cache/Play-Bold.ttf"
 const downfonts = "https://drive.google.com/u/0/uc?id=1uni8AiYk7prdrC7hgAmezaGTMH5R8gW8&export=download" 
 module.exports.config = {
-  name: "cardinfo7",
+  name: "بطاقةشخصية",
   version: "2.0.0",
   hasPermssion: 0,
   credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
