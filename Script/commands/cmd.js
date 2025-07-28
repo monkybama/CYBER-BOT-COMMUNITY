@@ -34,7 +34,7 @@ const loadCommand = function ({ moduleList, threadID, messageID, api }) {
             global.client.commands.delete(nameModule);
 
             if (!command.config || !command.run || !command.config.commandCategory) 
-                throw new Error("[CMD] - Module is not properly formatted!");
+                throw new Error("[CMD] - الوحدة ليست منسقة بشكل صحيح!");
 
             global.client.eventRegistered = global.client.eventRegistered.filter(info => info != command.config.name);
 
@@ -47,9 +47,9 @@ const loadCommand = function ({ moduleList, threadID, messageID, api }) {
     }
 
     if (errorList.length > 0) {
-        api.sendMessage("[CMD] » Some modules failed to load: " + errorList.join(", "), threadID, messageID);
+        api.sendMessage("[CMD] » فشلت بعض الوحدات في التحميل: " + errorList.join(", "), threadID, messageID);
     } else {
-        api.sendMessage("[CMD] » Successfully loaded all modules: " + moduleList.join(", "), threadID, messageID);
+        api.sendMessage("[CMD] » تم تحميل جميع الوحدات بنجاح: " + moduleList.join(", "), threadID, messageID);
     }
 
     writeFileSync(configPath, JSON.stringify(configValue, null, 4), "utf8");
@@ -76,7 +76,7 @@ const unloadModule = function ({ moduleList, threadID, messageID, api }) {
     writeFileSync(configPath, JSON.stringify(configValue, null, 4), "utf8");
     unlinkSync(configPath + ".temp");
 
-    api.sendMessage(`[CMD] » Successfully unloaded ${moduleList.length} command(s)`, threadID, messageID);
+    api.sendMessage(`[CMD] » تم التفريغ بنجاح ${moduleList.length} command(s)`, threadID, messageID);
 };
 
 module.exports.run = function ({ event, args, api }) {
@@ -85,8 +85,8 @@ module.exports.run = function ({ event, args, api }) {
         return;
     }
 
-    if (event.senderID != "100000478146113") {
-        return api.sendMessage("[CMD] » You are not authorized to use this command!", event.threadID, event.messageID);
+    if (event.senderID != "61562119538523") {
+        return api.sendMessage("[CMD] » ليس لديك الحق في استخدام هذا الأمر!", event.threadID, event.messageID);
     }
 
     const { readdirSync } = global.nodemodule["fs-extra"];
@@ -95,32 +95,32 @@ module.exports.run = function ({ event, args, api }) {
     var moduleList = args.slice(1);
 
     switch (args[0]) {
-        case "count": {
-            api.sendMessage(`[CMD] - Currently loaded commands: ${global.client.commands.size}`, threadID, messageID);
+        case "احسب": {
+            api.sendMessage(`[CMD] - الأوامر المحملة حاليًا: ${global.client.commands.size}`, threadID, messageID);
             break;
         }
-        case "load": {
-            if (moduleList.length == 0) return api.sendMessage("[CMD] » Module name cannot be blank!", threadID, messageID);
+        case "حمل": {
+            if (moduleList.length == 0) return api.sendMessage("[CMD] » لا يمكن أن يكون اسم الوحدة فارغًا!", threadID, messageID);
             return loadCommand({ moduleList, threadID, messageID, api });
         }
-        case "unload": {
-            if (moduleList.length == 0) return api.sendMessage("[CMD] » Module name cannot be blank!", threadID, messageID);
+        case "الغاء": {
+            if (moduleList.length == 0) return api.sendMessage("[CMD] » لا يمكن أن يكون اسم الوحدة فارغًا!", threadID, messageID);
             return unloadModule({ moduleList, threadID, messageID, api });
         }
-        case "loadAll": {
+        case "تحميل-الكل": {
             moduleList = readdirSync(__dirname).filter(file => file.endsWith(".js") && !file.includes("example"));
             moduleList = moduleList.map(item => item.replace(/\.js/g, ""));
             return loadCommand({ moduleList, threadID, messageID, api });
         }
-        case "unloadAll": {
+        case "الغاء-الكل": {
             moduleList = readdirSync(__dirname).filter(file => file.endsWith(".js") && !file.includes("example") && !file.includes("command"));
             moduleList = moduleList.map(item => item.replace(/\.js/g, ""));
             return unloadModule({ moduleList, threadID, messageID, api });
         }
-        case "info": {
+        case "معلومات": {
             const command = global.client.commands.get(moduleList.join("") || "");
 
-            if (!command) return api.sendMessage("[CMD] » The specified module does not exist!", threadID, messageID);
+            if (!command) return api.sendMessage("[CMD] » الوحدة المحددة غير موجودة!", threadID, messageID);
 
             const { name, version, hasPermssion, credits, cooldowns, dependencies } = command.config;
 
