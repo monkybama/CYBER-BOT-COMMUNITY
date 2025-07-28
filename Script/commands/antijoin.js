@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "antijoin",
+    name: "منع-الدخول",
     version: "1.0.0",
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
     hasPermssion: 1,
@@ -18,5 +18,5 @@ module.exports.run = async({ api, event, Threads}) => {
     else data.newMember = false;
     await Threads.setData(event.threadID, { data });
       global.data.threadData.set(parseInt(event.threadID), data);
-    return api.sendMessage(`[ 𝐀𝐍𝐓𝐈 𝐉𝐎𝐈𝐍 ] » 𝗜𝗺𝗽𝗹𝗲𝗺𝗲𝗻𝘁 ${(data.newMember == true) ? "𝗢𝗻" : "𝗢𝗳𝗳"} 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹 𝗔𝗻𝘁𝗶 𝗝𝗼𝗶𝗻 ✅`, event.threadID, event.messageID);
+    return api.sendMessage(`[ 𝐀𝐍𝐓𝐈 𝐉𝐎𝐈𝐍 ] » 𝗜𝗺𝗽𝗹𝗲𝗺𝗲𝗻𝘁 ${(data.newMember == true) ? "تشغيل" : "ايقاف"} 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹 𝗔𝗻𝘁𝗶 𝗝𝗼𝗶𝗻 ✅`, event.threadID, event.messageID);
 }
