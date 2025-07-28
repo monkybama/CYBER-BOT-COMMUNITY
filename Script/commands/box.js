@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "group",
+	name: "فيلق",
 	version: "1.0.0",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -16,11 +16,11 @@ module.exports.config = {
 module.exports.run = async({api, event, args}) => {
 	const fs = global.nodemodule["fs-extra"];
 	const request = global.nodemodule["request"];
-	 if (args.length == 0) return api.sendMessage(`You can use:\n/groupemoji [icon]\n\n/groupname [the box name needs to be changed]\n\n/groupimage [rep any image needs to be set as group chat image]\n\n/gcadmin [tag] => it will give qtv to the person tagged\n\n/groupinfo => All group information !
+	 if (args.length == 0) return api.sendMessage(`يمكنك استخدام:\n/groupemoji [icon]\n\n/اسم المجموعة [يجب تغيير اسم الصندوق]\n\n/صورة المجموعة [يجب تعيين أي صورة كصورة دردشة جماعية]\n\n/ارفع [tag] => عشان ترفع العضو العملت ليهو تاق ادمن \n\n/معلومات => جميع معلومات المجموعة !
 `, event.threadID, event.messageID);
 
 
-	if (args[0] == "name") {
+	if (args[0] == "اسم") {
 var content = args.join(" ");
 var c = content.slice(4, 99) || event.messageReply.body;
 api.setTitle(`${c } `, event.threadID);
@@ -31,7 +31,7 @@ api.changeThreadEmoji(name, event.threadID)
 
  }
 if(args[0] == "me"){
-	 if (args[1] == "admin") {
+	 if (args[1] == "ادمن") {
 		const threadInfo = await api.getThreadInfo(event.threadID)
 		const find = threadInfo.adminIDs.find(el => el.id == api.getCurrentUserID());
 		if(!find) api.sendMessage("BOT needs to throw admin to use ?", event.threadID, event.messageID)
@@ -39,7 +39,7 @@ if(args[0] == "me"){
      else api.changeAdminStatus(event.threadID, event.senderID, true);
      }
 } 
-if (args[0] == "admin") {
+if (args[0] == "ادمن2") {
 
 if (args.join().indexOf('@') !== -1){
 	 namee = Object.keys(event.mentions)}
@@ -51,21 +51,21 @@ const findd = threadInfo.adminIDs.find(el => el.id == namee);
 const find = threadInfo.adminIDs.find(el => el.id == api.getCurrentUserID());
 const finddd = threadInfo.adminIDs.find(el => el.id == event.senderID);
 
-if (!finddd) return api.sendMessage("You are not a box admin ?", event.threadID, event.messageID);		
+if (!finddd) return api.sendMessage("أنت لست مسؤول المجموعة ?", event.threadID, event.messageID);		
 if(!find) {api.sendMessage("Don't throw the admin using the cock?", event.threadID, event.messageID)}
 if (!findd) {api.changeAdminStatus(event.threadID, namee, true);}
 else api.changeAdminStatus(event.threadID, namee, false)
  }
 
-if (args[0] == "image") {
+if (args[0] == "صورة") {
 
-if (event.type !== "message_reply") return api.sendMessage("❌ You must reply to a certain audio, video, or photo", event.threadID, event.messageID);
-	if (!event.messageReply.attachments || event.messageReply.attachments.length == 0) return api.sendMessage("❌ You must reply to a certain audio, video, or photo", event.threadID, event.messageID);
-	if (event.messageReply.attachments.length > 1) return api.sendMessage(`Please reply only one audio, video, photo!`, event.threadID, event.messageID);
+if (event.type !== "message_reply") return api.sendMessage("❌ يجب عليك الرد على مقطع صوتي أو فيديو أو صورة معينة", event.threadID, event.messageID);
+	if (!event.messageReply.attachments || event.messageReply.attachments.length == 0) return api.sendMessage("❌ يجب عليك الرد على مقطع صوتي أو فيديو أو صورة معينة", event.threadID, event.messageID);
+	if (event.messageReply.attachments.length > 1) return api.sendMessage(`يرجى الرد بصوت واحد فقط أو فيديو أو صورة!`, event.threadID, event.messageID);
 	 var callback = () => api.changeGroupImage(fs.createReadStream(__dirname + "/cache/1.png"), event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"));	
       return request(encodeURI(event.messageReply.attachments[0].url)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
       };
-if (args[0] == "info") {
+if (args[0] == "معلومات") {
 		var threadInfo = await api.getThreadInfo(event.threadID);
 		let threadMem = threadInfo.participantIDs.length;
 	var gendernam = [];
