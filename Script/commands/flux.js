@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 module.exports.config = {
- name: "flux",
+ name: "تخيل2",
  version: "2.0",
  hasPermssion: 0,
  credits: "Dipto",
