@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "marriedv2",
+    name: "زواج2",
     version: "3.1.1",
     hasPermssion: 0,
     credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
