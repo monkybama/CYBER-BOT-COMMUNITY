@@ -1,6 +1,6 @@
 var request = require("request");const { readdirSync, readFileSync, writeFileSync, existsSync, copySync, createWriteStream, createReadStream } = require("fs-extra");
 module.exports.config = {
-	name: "0admin",
+	name: "اعدادادمن",
 	version: "1.0.5",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -24,10 +24,10 @@ module.exports.languages = {
 
     },
     "en": {
-        "listAdmin": '[Admin] Admin list: \n\n%1',
-        "notHavePermssion": '[Admin] You have no permission to use "%1"',
-        "addedNewAdmin": '[Admin] Added %1 Admin :\n\n%2',
-        "removedAdmin": '[Admin] Remove %1 Admin:\n\n%2'
+        "listAdmin": '[Admin] قائمة الإدارة: \n\n%1',
+        "notHavePermssion": '[Admin] ليس لديك إذن لاستخدام "%1"',
+        "addedNewAdmin": '[Admin] تمت إضافة %1 مسؤول :\n\n%2',
+        "removedAdmin": '[Admin] إزالة %1 المسؤول :\n\n%2'
     }
 }
 module.exports.onLoad = function() {
@@ -83,8 +83,8 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
         }
 
        
-        case "add": { 
-            if (permssion != 3) return api.sendMessage(getText("notHavePermssion", "add"), threadID, messageID);
+        case "اضافة": { 
+            if (permssion != 3) return api.sendMessage(getText("notHavePermssion", "اضافة"), threadID, messageID);
             if(event.type == "message_reply") { content[0] = event.messageReply.senderID }
             if (mention.length != 0 && isNaN(content[0])) {
                 var listAdd = [];
@@ -130,10 +130,10 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
             }
             else return global.utils.throwError(this.config.name, threadID, messageID);
                   }
-                case "remove":
+                case "ازالة":
         case "rm":
         case "delete": {
-            if (permssion != 3) return api.sendMessage(getText("notHavePermssion", "delete"), threadID, messageID);
+            if (permssion != 3) return api.sendMessage(getText("notHavePermssion", "ازالة"), threadID, messageID);
             if(event.type == "message_reply") { content[0] = event.messageReply.senderID }
             if (mentions.length != 0 && isNaN(content[0])) {
                 const mention = Object.keys(mentions);
@@ -187,7 +187,7 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
             }
             else global.utils.throwError(this.config.name, threadID, messageID);
   }
-        case 'qtvonly': {
+        case 'ادمن-فقط': {
        const { resolve } = require("path");
         const pathData = resolve(__dirname, 'cache', 'data.json');
         const database = require(pathData);
@@ -203,7 +203,7 @@ module.exports.run = async function ({ api, event, args, Users, permssion, getTe
         writeFileSync(pathData, JSON.stringify(database, null, 4));
         break;
     }
-   case 'ndhonly':
+   case 'مشرفين-فقط':
         case '-ndh': {
             //---> CODE ADMIN ONLY<---//
    if (permssion < 2) return api.sendMessage("𝗠𝗢𝗗𝗘 - 𝗕𝗼𝗿𝗱𝗲𝗿 𝗰𝗮𝗻𝗴𝗹𝗲 𝗿𝗶𝗴𝗵𝘁𝘀 🎀 ", threadID, messageID);       
