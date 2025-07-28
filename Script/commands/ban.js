@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "ban",
+	name: "بان",
 	version: "2.0.5",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -66,16 +66,16 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
   }
 
   
-  if(args[0] == "view") {
+  if(args[0] == "عرض") {
   	if(!args[1]) {
   		var msg = "";
   		var mywarn = bans.warns[threadID][senderID];
-  		if(!mywarn) return api.sendMessage('✅You have never been warned', threadID, messageID);
+  		if(!mywarn) return api.sendMessage('✅لم يتم تحذيرك أبدًا', threadID, messageID);
   		var num = 1;
   		for(let reasonwarn of mywarn) {
   			msg += `reasonwarn\n`;
   		}
-  		api.sendMessage(`❎You have been warned for the reason : ${msg}`, threadID, messageID);
+  		api.sendMessage(`❎لقد تم تحذيرك لهذا السبب : ${msg}`, threadID, messageID);
   	}
   	else if(Object.keys(event.mentions).length != 0) {
   		var message = "";
@@ -86,7 +86,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
   			var so = 1;
   			var reasonarr = bans.warns[threadID][id];
   			if(typeof reasonarr != "object") {
-  				msg += " Never been warned\n"
+  				msg += " لم يتم تحذيري قط\n"
   			} else {
   			for(let reason of reasonarr) {
   				msg += ""+reason+"\n";
@@ -97,7 +97,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
   		api.sendMessage(message, threadID, messageID);
   	}
   	
-  	else if(args[1] == "all") {
+  	else if(args[1] == "الجميع") {
   		var dtwbox = bans.warns[threadID];
   		var allwarn = "";
   		for(let idtvw in dtwbox) {
@@ -107,41 +107,41 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
   			}
   			allwarn += `${name} : ${msg}\n`;
   		}
-  		allwarn == "" ? api.sendMessage("✅No one in your group has been warned yet", threadID, messageID) : api.sendMessage("List of members who have been warned:\n"+allwarn, threadID, messageID);
+  		allwarn == "" ? api.sendMessage("✅لم يتم تحذير أي شخص في مجموعتك حتى الآن", threadID, messageID) : api.sendMessage("قائمة الأعضاء الذين تم تحذيرهم:\n"+allwarn, threadID, messageID);
   	}
   }
   
-  else if(args[0] == "unban") {
+  else if(args[0] == "فك") {
   	var id = parseInt(args[1]), mybox = bans.banned[threadID];
   	var info = await api.getThreadInfo(threadID);
-	if (!info.adminIDs.some(item => item.id == senderID) && !(global.config.ADMINBOT).includes(senderID)) return api.sendMessage('❎Right cunt border!', threadID, messageID);
+	if (!info.adminIDs.some(item => item.id == senderID) && !(global.config.ADMINBOT).includes(senderID)) return api.sendMessage('❎خطاء!', threadID, messageID);
 	
-  	if(!id) return api.sendMessage("❎Need to enter the id of the person to be removed from the banned list of the group", threadID, messageID);
+  	if(!id) return api.sendMessage("❎يجب إدخال معرف الشخص المراد إزالته من قائمة المحظورين في المجموعة", threadID, messageID);
   	bans.banned;
-  	if(!mybox.includes(id)) return api.sendMessage("✅This person hasn't been banned from your group yet", threadID, messageID);
-			api.sendMessage(`✅Removed the member with id ${id} from the group banned list`, threadID, messageID);
+  	if(!mybox.includes(id)) return api.sendMessage("✅لم يتم حظر هذا الشخص من مجموعتك بعد", threadID, messageID);
+			api.sendMessage(`✅تم إزالة العضو الذي يحمل معرفًا ${id} من قائمة المجموعة المحظورة`, threadID, messageID);
 			mybox.splice(mybox.indexOf(id), 1);
 			delete bans.warns[threadID][id]
 			fs.writeFileSync(__dirname + `/cache/bans.json`, JSON.stringify(bans, null, 2));
   }
   
-  else if(args[0] == "listban") {
+  else if(args[0] == "قائمة") {
   	var mybox = bans.banned[threadID];
   	var msg = "";
   	for(let iduser of mybox) {
   		var name = (await api.getUserInfo(iduser))[iduser].name;
   		msg += "╔Name: " + name + "\n╚ID: " + iduser + "\n";
   	}
-  	msg == "" ? api.sendMessage("✅No one in your group has been banned from the group yet", threadID, messageID) : api.sendMessage("❎Members who have been banned from the group:\n"+msg, threadID, messageID);
+  	msg == "" ? api.sendMessage("✅لم يتم حظر أي شخص في مجموعتك من المجموعة بعد", threadID, messageID) : api.sendMessage("❎الأعضاء الذين تم حظرهم من المجموعة:\n"+msg, threadID, messageID);
   }
-  else if(args[0] == "reset") {
+  else if(args[0] == "ريست") {
   	var info = await api.getThreadInfo(threadID);
-	if (!info.adminIDs.some(item => item.id == senderID) && !(global.config.ADMINBOT).includes(senderID)) return api.sendMessage('❎Right cunt border!', threadID, messageID);
+	if (!info.adminIDs.some(item => item.id == senderID) && !(global.config.ADMINBOT).includes(senderID)) return api.sendMessage('❎خطاء!', threadID, messageID);
   	
   	bans.warns[threadID] = {};
   	bans.banned[threadID] = [];
   	fs.writeFileSync(__dirname + `/cache/bans.json`, JSON.stringify(bans, null, 2));
-  	api.sendMessage("Reset all data in your group", threadID, messageID);
+  	api.sendMessage("إعادة تعيين جميع البيانات في مجموعتك", threadID, messageID);
   }
   	 //◆━━━━━━━━━◆WARN◆━━━━━━━━━◆\\
   	 else{ 
@@ -209,7 +209,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
 		
 		}//for
 
-		api.sendMessage({body: `Banned members ${arrayname.join(", ")} permanently leave the group for the reason: ${reason}`, mentions: arraytag}, threadID, messageID);
+		api.sendMessage({body: `الأعضاء المحظورين ${arrayname.join(", ")} ترك المجموعة نهائيا للسبب: ${reason}`, mentions: arraytag}, threadID, messageID);
 		fs.writeFileSync(__dirname + `/cache/bans.json`, JSON.stringify(bans, null, 2));
 }
   
