@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: 'allbox',
+  name: 'اعداد',
   version: '1.0.0',
   credits: '𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️',
   hasPermssion: 2,
@@ -20,31 +20,31 @@ module.exports.handleReply = async function ({ api, event, args, Threads, handle
   switch (handleReply.type) {
     case "reply":
       {
-        if (arg[0] == "ban" || arg[0] == "Ban") {
+        if (arg[0] == "حظر" || arg[0] == "حظر") {
           const data = (await Threads.getData(idgr)).data || {};
           data.banned = 1;
           data.dateAdded = time;
           await Threads.setData(idgr, { data });
           global.data.threadBanned.set(idgr, { dateAdded: data.dateAdded });
-          return api.sendMessage(`»Notifications from Owner ULL4SH«\n\n Group of Friends Have been banned from using bots by Ban.`, idgr, () =>
+          return api.sendMessage(`»الإشعارات من المالك ULL4SH«\n\n تم حظر مجموعة الأصدقاء من استخدام البوت بواسطة Ban.`, idgr, () =>
             api.sendMessage(`${api.getCurrentUserID()}`, () =>
               api.sendMessage(`★★BanSuccess★★\n\n🔷${groupName} \n🔰TID:${idgr}`, threadID, () =>
                 api.unsendMessage(handleReply.messageID))));
         }
 
-        if (arg[0] == "unban" || arg[0] == "Unban" || arg[0] == "ub" || arg[0] == "Ub") {
+        if (arg[0] == "فك" || arg[0] == "فك" || arg[0] == "ub" || arg[0] == "Ub") {
           const data = (await Threads.getData(idgr)).data || {};
           data.banned = 0;
           data.dateAdded = null;
           await Threads.setData(idgr, { data });
           global.data.threadBanned.delete(idgr, 1);
-          return api.sendMessage(`»Notifications from Owner ULL4SH«\n\n Group Of Friends That Have Been Removed Board`, idgr, () =>
+          return api.sendMessage(`»الإشعارات من المالك ULL4SH«\n\n مجموعة الأصدقاء الذين تمت إزالة اللوحة`, idgr, () =>
             api.sendMessage(`${api.getCurrentUserID()}`, () =>
               api.sendMessage(`★★𝐔𝐧𝐛𝐚𝐧𝐒𝐮𝐜𝐜𝐞𝐬𝐬★★\n\n🔷${groupName} \n🔰𝐓𝐈𝐃:${idgr} `, threadID, () =>
                 api.unsendMessage(handleReply.messageID))));
         }
 
-        if (arg[0] == "del" || arg[0] == "Del") {
+        if (arg[0] == "حذف" || arg[0] == "حذف") {
           const data = (await Threads.getData(idgr)).data || {};
           await Threads.delData(idgr, { data });
           console.log(groupName)
@@ -52,8 +52,8 @@ module.exports.handleReply = async function ({ api, event, args, Threads, handle
           break;
         }
 
-        if (arg[0] == "out" || arg[0] == "Out") {
-          api.sendMessage(`»Notifications from Owner ULL4SH«\n\n ★★Deleted from chat★★ group`, idgr, () =>
+        if (arg[0] == "اطلع" || arg[0] == "اطلع") {
+          api.sendMessage(`»الإشعارات من المالك ULL4SH«\n\n ★★تم حذفه من الدردشة★★ مجموعة`, idgr, () =>
             api.sendMessage(`${api.getCurrentUserID()}`, () =>
               api.sendMessage(`★★𝐎𝐮𝐭𝐒𝐮𝐜𝐜𝐞𝐬𝐬★★\n\n🔷${groupName} \n🔰𝐓𝐈𝐃:${idgr} `, threadID, () =>
                 api.unsendMessage(handleReply.messageID, () =>
@@ -65,7 +65,7 @@ module.exports.handleReply = async function ({ api, event, args, Threads, handle
 };
 module.exports.run = async function ({ api, event, args }) {
   switch (args[0]) {
-    case "all":
+    case "الكل":
       {
         var threadList = [];
         var data, msg = "";
@@ -103,7 +103,7 @@ module.exports.run = async function ({ api, event, args }) {
         }
         msg += `--Page ${page}/${numPage}--\nDy ${global.config.PREFIX}allbox page number/all\n\n`
 
-        api.sendMessage(msg + '🎭Reply Out, Ban, Unban, Del[data] the order number to Out, Ban, Unban, Del[data] that thread!', event.threadID, (e, data) =>
+        api.sendMessage(msg + '🎭رد  اطلع, حظر, فك, حذف[data] رقم الطلب للخارج, حظر, فك, حذف[data] that thread!', event.threadID, (e, data) =>
           global.client.handleReply.push({
             name: this.config.name,
             author: event.senderID,
@@ -185,10 +185,10 @@ module.exports.run = async function ({ api, event, args }) {
 		  //console.log(`${nameThread}`);
       }
  
-	   return api.sendMessage(threadList.length != 0 ? api.sendMessage(`🍄There is currently ${threadList.length} group\n\n${threadList.join("\n")}`,
+	   return api.sendMessage(threadList.length != 0 ? api.sendMessage(`🍄يوجد حاليا ${threadList.length} مجموعة\n\n${threadList.داخل("\n")}`,
           threadID,
           messageID
-        ) : "There is currently no group!", threadID, messageID);
+        ) : "لا يوجد مجموعة حاليا!", threadID, messageID);
       
       }
   };
