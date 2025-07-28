@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "coin",
+	name: "محفظة",
 	version: "1.0.2",
 	hasPermssion: 0,
 	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -11,12 +11,12 @@ module.exports.config = {
 
 module.exports.languages = {
 	"vi": {
-		"sotienbanthan": "Số tiền bạn đang có: %1$",
-		"sotiennguoikhac": "Số tiền của %1 hiện đang có là: %2$"
+		"sotienbanthan": "رصيدك الحالي: %1$",
+		"sotiennguoikhac": "%1's الرصيد الحالي: %2$."
 	},
 	"en": {
-		"sotienbanthan": "Your current balance: %1$",
-		"sotiennguoikhac": "%1's current balance: %2$."
+		"sotienbanthan": "رصيدك الحالي: %1$",
+		"sotiennguoikhac": "%1's الرصيد الحالي: %2$."
 	}
 }
 
