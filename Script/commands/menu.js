@@ -1,5 +1,5 @@
 module.exports.config = {
- name: "menu",
+ name: "منيو",
  version: "1.0.0",
  hasPermssion: 0,
  credits: "Islamick Chat",
@@ -81,7 +81,7 @@ module.exports.run = async function({ api, event, args }) {
  fs.writeFileSync(path, Buffer.from(dowloadIMG, "utf-8") );
  imgP.push(fs.createReadStream(path))
  const command = commands.values();
- var group = [], msg = "╭•┄┅════❁🌺❁════┅┄•╮\n আসসালামু আলাইকুম-!!🖤💫\n╰•┄┅════❁🌺❁════┅┄•╯\n\n𝐈𝐒𝐋𝐀𝐌𝐈𝐂𝐊 𝐂𝐇𝐀𝐓 𝐌𝐄𝐍𝐔 𝐋𝐈𝐒𝐓\n⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆\n";
+ var group = [], msg = "╭•┄┅════❁🌺❁════┅┄•╮\n السلام عليكم.-!!🖤💫\n╰•┄┅════❁🌺❁════┅┄•╯\n\nVERGIL 𝐌𝐄𝐍𝐔 𝐋𝐈𝐒𝐓\n⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆\n";
  let check = true, page_num_input = "";
  let bonus = 0;
 
