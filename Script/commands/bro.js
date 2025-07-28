@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "brother",
+  name: "برذر",
   version: "7.3.1",
   hasPermssion: 0,
   credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️", 
@@ -66,9 +66,9 @@ module.exports.run = async function ({ event, api, args }) {
   const fs = global.nodemodule["fs-extra"];
   const { threadID, messageID, senderID } = event;
   const mention = Object.keys(event.mentions);
-  if (!mention[0]) return api.sendMessage("আরে বলদ একজনকে মেনশন তো করবি নাকি 😑🌚", threadID, messageID);
+  if (!mention[0]) return api.sendMessage("مهلا، أنت ستذكر شخصًا ما، أليس كذلك؟ 😑🌚", threadID, messageID);
   else {
       const one = senderID, two = mention[0];
-      return makeImage({ one, two }).then(path => api.sendMessage({ body: "✧•❁ ভাই বোনের বন্ধন ❁•✧\n\n╔═══❖••° °••❖═══╗\n   আলাদা হলেও হৃদয়ে একসাথে\n╚═══❖••° °••❖═══╝\n\n    ✶⊶⊷⊷❍⊶⊷⊷✶\n\n  দূরে থাকলেও, ভালোবাসা কখনো কমে না।\n    কারণ আমরা ভাই-বোন, চিরদিনের সাথী।\n\n    ✶⊶⊷⊷❍⊶⊷⊷✶", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
+      return makeImage({ one, two }).then(path => api.sendMessage({ body: "✧•❁ رابطة الأخوة ❁•✧\n\n╔═══❖••° °••❖═══╗\n   حتى لو كنا بعيدين عن بعضنا، فنحن معًا في قلوبنا.\n╚═══❖••° °••❖═══╝\n\n    ✶⊶⊷⊷❍⊶⊷⊷✶\n\n  حتى لو كنا بعيدين عن بعضنا البعض، الحب لا يتضاءل أبدًا.\n    لأننا إخوة وأخوات، رفقاء أبديون.\n\n    ✶⊶⊷⊷❍⊶⊷⊷✶", attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
   }
     }
