@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "download",
+  name: "تحميل",
   version: "1.0.1",
   hasPermssion: 2,
   credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
@@ -23,10 +23,10 @@ module.exports.run = async function({ api, event, client, Threads, args }) {
     var format = rq.get(link);
     var namefile = format.uri.pathname;
     var path = path+'/'+(namefile.slice(namefile.lastIndexOf("/")+1));
-    let getimg = (await axios.get(link, { responseType: "arraybuffer" }))
+    let getimg = (await axios.get(link, { responseType: "مخزن المصفوفة" }))
     .data;
   fs.writeFileSync(path, Buffer.from(getimg, "utf-8"));
   
-  return api.sendMessage("Save the file to the folder"+path, event.threadID, event.messageID);
+  return api.sendMessage("حفظ الملف في المجلد"+path, event.threadID, event.messageID);
     
 }  
