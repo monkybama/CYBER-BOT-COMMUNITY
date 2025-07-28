@@ -1,6 +1,6 @@
 module.exports = {
  config:{
- name: "autodl",
+ name: "تنزيل-تلقائي",
  version: "0.0.2",
  hasPermssion: 0,
  credits: "SHAON",
